@@ -1,7 +1,18 @@
 import React from "react";
 
-const App = () => {
-  return <h1>Hello, </h1>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+      </div>
+    );
+  }
 }
 
 export default App
