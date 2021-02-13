@@ -4,9 +4,14 @@ const express = require("express");
 const app = express();
 const port = 8080;
 const cors = require("cors");
-const db = require("../db/index.js");
+const db = require("../db/index.js"); //refers to dabase
 
 app.use(cors());
+
+app.get('/', (req, res) => {
+  res.status(200);
+  res.send("i am a get req");
+})
 
 app.listen(port, () => {
   console.log("listening on 8080");
