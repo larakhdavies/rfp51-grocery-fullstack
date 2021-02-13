@@ -1,5 +1,5 @@
 import React from "react";
-import GroceryList from "./GroceryList.jsx"
+import GroceryList from "./GroceryList.jsx";
 import $ from "jquery";
 
 class App extends React.Component {
@@ -12,7 +12,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: 'localhost:8080',
+      url: 'http://localhost:8080/groceryList',
       type: 'GET',
       success: function (){
         console.log('success')
@@ -20,7 +20,7 @@ class App extends React.Component {
       error: function () {
         console.log('failed')
       }
-    })
+    });
   }
 
   // componentWillUnmount() {
