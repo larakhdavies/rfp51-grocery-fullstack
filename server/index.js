@@ -6,11 +6,13 @@ const port = 8080;
 const cors = require("cors");
 const db = require("../db/index.js"); //refers to dabase
 const controller = require("./controllers.js");
+const path = require("path");
 
 
 app.use(cors());
 
-app.use(express.static('src'))
+var joinedPath = path.join(__dirname, "../client/dist")
+app.use(express.static(joinedPath))
 
 app.get('/groceryList', controller.getAll)//takes in endpoitn and a handler
 
