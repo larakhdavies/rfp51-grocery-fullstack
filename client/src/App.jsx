@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: "apple, banan"
+      list: ""
     };
   }
 
@@ -14,18 +14,17 @@ class App extends React.Component {
     $.ajax({
       url: 'http://localhost:8080/groceryList',
       type: 'GET',
-      success: function (){
-        console.log('success')
-      },
+      success: function (data){
+        console.log(data)
+
+        this.setState({list: data});
+        }.bind(this),
       error: function () {
         console.log('failed')
       }
     });
   }
 
-  // componentWillUnmount() {
-
-  // }
 
   render() {
     return (
