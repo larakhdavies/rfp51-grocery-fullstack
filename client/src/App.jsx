@@ -1,12 +1,13 @@
 import React from "react";
 import GroceryList from "./GroceryList.jsx";
 import $ from "jquery";
+import GroceryListItem from './GroceryListItem.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: ""
+      list: []
     };
   }
 
@@ -16,7 +17,6 @@ class App extends React.Component {
       type: 'GET',
       success: function (data){
         console.log(data)
-
         this.setState({list: data});
         }.bind(this),
       error: function () {
