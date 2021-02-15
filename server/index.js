@@ -14,6 +14,24 @@ app.use(cors());
 var joinedPath = path.join(__dirname, "../client/dist")
 app.use(express.static(joinedPath))
 
+app.use(express.json());
+
+app.post('/groceryList', (req, res) => {
+  let item = req.body;
+  console.log(item)
+  let quantity = 100;
+
+  db.query(`INSERT INTO groceryList VALUES (null, '${item.itemName}', '${quantity}')`, (err, result) => {
+    if (err) {
+      res.status(400)
+      res.send(err)
+    } else {
+      res.status(200)
+      res.end()
+    }
+  })
+})
+
 app.get('/groceryList', controller.getAll)//takes in endpoitn and a handler
 
 app.get('/', (req, res) => {
